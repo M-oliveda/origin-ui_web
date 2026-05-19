@@ -1,0 +1,55 @@
+#!/usr/bin/env sh
+
+# Validate commit message format (Gitmoji)
+# Expected format: :<shortcode>: <Message starting with capital letter>
+# No period at the end
+commit_msg=$(cat "$1")
+first_line=$(echo "$commit_msg" | head -n 1)
+
+# Check 1: Message must start with a gitmoji shortcode (e.g., :sparkles:, :memo:, :bug:)
+# Pattern: :word_with_underscores: followed by space and message
+if ! echo "$first_line" | grep -qE '^:[a-z][a-z0-9_]*: '; then
+  echo "❌ Error: Commit message must start with a gitmoji shortcode"
+  echo ""
+  echo "Format: :<shortcode>: <Message>"
+  echo "Example: :sparkles: Add carousel component"
+  echo "Example: :memo: Update README and MASTERPLAN doc files"
+  echo "Example: :bug: Fix navigation routing issue"
+  echo ""
+  echo "See https://gitmoji.dev/ for emoji reference"
+  exit 1
+fi
+
+# Extract the message part (after shortcode and space)
+# Remove emoji shortcode (e.g., :memo:) from the beginning
+message=$(echo "$first_line" | sed -E 's/^:[a-z][a-z0-9_]*: //')
+
+# Check 2: First letter after shortcode must be capitalized
+if ! echo "$message" | grep -qE '^[A-Z]'; then
+  echo "❌ Error: First letter after shortcode must be capitalized"
+  echo ""
+  echo "Current: $first_line"
+  echo "Format: :<shortcode>: <Capitalized message>"
+  echo "Example: :sparkles: Add carousel component"
+  echo "Example: :memo: Update README and MASTERPLAN doc files"
+  exit 1
+fi
+
+# Check 3: Message should not end with a period
+if echo "$message" | grep -qE '\.$'; then
+  echo "❌ Error: Commit message should not end with a period"
+  echo ""
+  echo "Current: $first_line"
+  echo "Format: :<shortcode>: <Message without period>"
+  echo "Example: :sparkles: Add carousel component"
+  echo "Example: :memo: Update README and MASTERPLAN doc files"
+  exit 1
+fi
+
+# Check message length (first line should be <= 72 characters, recommend 50)
+if [ ${#first_line} -gt 72 ]; then
+  echo "⚠️  Warning: First line is longer than 72 characters (${#first_line} chars)"
+  echo "Consider keeping it under 50 characters for better readability"
+fi
+
+echo "✅ Commit message format is valid"

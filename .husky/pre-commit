@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+
+echo "🔍 Running pre-commit checks..."
+
+# Run linting
+echo "📋 Checking code quality with ESLint..."
+npm run lint
+
+if [ $? -ne 0 ]; then
+  echo "❌ Linting failed. Please fix the errors before committing."
+  exit 1
+fi
+
+# Run format check
+echo "🎨 Checking code formatting with Prettier..."
+npm run format:check
+
+if [ $? -ne 0 ]; then
+  echo "❌ Code formatting check failed."
+  echo "💡 Run 'npm run format' to fix formatting issues."
+  exit 1
+fi
+
+# Run tests
+echo "🧪 Running tests..."
+npm run test
+
+if [ $? -ne 0 ]; then
+  echo "❌ Tests failed. Please fix the failing tests before committing."
+  exit 1
+fi
+
+echo "✅ All pre-commit checks passed!"
