@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
 
 env:
-  SERVICE_NAME: origin-ui_web
+  SERVICE_NAME: origin-ui-web
   REGION: us-central1
-  IMAGE_NAME: origin-ui_web
+  IMAGE_NAME: origin-ui-web
 
 permissions:
   contents: write

@@ -316,7 +316,7 @@ managed through **GitHub Environments** for isolation between contexts.
 
 | Environment    | Trigger                | Cloud Run service | Access |
 | -------------- | ---------------------- | ----------------- | ------ |
-| **Production** | Manual (`main` branch) | `origin-ui_web`   | Public |
+| **Production** | Manual (`main` branch) | `origin-ui-web`   | Public |
 
 Authentication to GCP uses **Workload Identity Federation** (OIDC) — no long-lived service account
 keys are stored anywhere.
