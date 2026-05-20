@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -154,7 +153,7 @@ function DashboardTemplate() {
     return (
         <div className="space-y-6 p-6 lg:p-8">
             {/* Top bar */}
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <h2 className="text-2xl font-bold tracking-tight">Dashboard</h2>
                     <p className="text-muted-foreground text-sm">
@@ -162,9 +161,9 @@ function DashboardTemplate() {
                     </p>
                 </div>
                 <div className="flex items-center gap-3">
-                    <div className="relative">
+                    <div className="relative flex-1 sm:flex-initial">
                         <Search className="text-muted-foreground absolute top-1/2 left-2.5 size-4 -translate-y-1/2" />
-                        <Input placeholder="Search..." className="w-48 pl-8" />
+                        <Input placeholder="Search..." className="w-full pl-8 sm:w-48" />
                     </div>
                     <Button variant="ghost" size="icon">
                         <Bell className="size-4" />

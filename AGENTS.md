@@ -12,6 +12,26 @@ Heed deprecation notices.
 
 ---
 
+## Coding Plan
+
+Before writing any code, assess the task complexity:
+
+- **Small** (1–2 files, isolated change — e.g. rename, minor style fix, single-prop addition):
+  proceed directly without a plan.
+- **Medium or larger** (3+ files touched, new feature, refactor, architectural change, or any task
+  where the approach is non-obvious): **always enter plan mode first** using the `EnterPlanMode`
+  tool. Draft the full implementation plan and get user approval via `ExitPlanMode` before writing a
+  single line of code.
+
+When in plan mode:
+
+- List every file that will be created or modified.
+- Describe the key design decisions and trade-offs.
+- Call out any ambiguities and ask the user to resolve them before implementation begins.
+- Do **not** start implementing until the user approves the plan.
+
+---
+
 ## Project Overview
 
 | Concern         | Stack                                       |

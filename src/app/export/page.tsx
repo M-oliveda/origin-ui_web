@@ -6,7 +6,7 @@ export default function ExportPage() {
         <div className="flex flex-1 flex-col">
             {/* Action bar */}
             <div className="border-border bg-muted/30 border-b">
-                <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
+                <div className="mx-auto flex max-w-4xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                         <h1 className="text-lg font-semibold">Export Design System</h1>
                         <p className="text-muted-foreground text-sm">
