@@ -3,7 +3,7 @@
   "description": "Origin UI is a design system that mirrors a Figma source of truth and provides a complete, interactive reference for building consistent UIs.",
   "author": "Mauricio Oliveda",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "scripts": {
