@@ -32,7 +32,9 @@ export default function Home() {
         <div className="flex flex-1 flex-col items-center justify-center px-6 py-16">
             <div className="w-full max-w-3xl space-y-12">
                 <div className="space-y-4">
-                    <h1 className="text-5xl font-bold tracking-tight">Origin UI</h1>
+                    <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+                        Origin UI
+                    </h1>
                     <p className="text-muted-foreground max-w-xl text-lg">
                         A living design system that mirrors the Figma source of truth. Built with
                         Next.js, Tailwind CSS, and shadcn/ui — every token, component, and layout is
