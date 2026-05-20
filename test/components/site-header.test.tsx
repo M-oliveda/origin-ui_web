@@ -9,6 +9,10 @@ jest.mock("@/components/ui/separator", () => ({
     Separator: () => <hr data-testid="separator" />,
 }));
 
+jest.mock("@/components/site-header-mobile-nav", () => ({
+    MobileNav: () => <button data-testid="mobile-nav">Menu</button>,
+}));
+
 describe("SiteHeader", () => {
     it("renders the site logo link", () => {
         render(<SiteHeader />);
