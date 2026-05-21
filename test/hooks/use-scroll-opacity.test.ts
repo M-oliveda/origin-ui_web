@@ -66,7 +66,7 @@ describe("useScrollOpacity", () => {
         useSyncExternalStoreSpy = jest
             .spyOn(actual, "useSyncExternalStore")
             .mockImplementation((_subscribe, _getSnapshot, getServerSnapshot) => {
-                serverSnapshot = getServerSnapshot?.();
+                serverSnapshot = getServerSnapshot?.() as number;
                 return 0;
             });
 
