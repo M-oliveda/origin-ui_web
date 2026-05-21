@@ -515,7 +515,7 @@ export default function ColorsPage() {
                         <p className="text-muted-foreground mb-3 text-xs font-medium tracking-widest uppercase">
                             Primary action + secondary
                         </p>
-                        <div className="flex items-center gap-3">
+                        <div className="flex flex-wrap items-center gap-3">
                             <div className="bg-primary text-primary-foreground rounded-lg px-4 py-2 text-sm font-medium">
                                 Primary
                             </div>
