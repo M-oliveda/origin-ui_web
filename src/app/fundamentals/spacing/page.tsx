@@ -204,7 +204,7 @@ export default function SpacingPage() {
                     Stacking order utilities for controlling layer precedence. Use consistent values
                     to avoid z-index conflicts.
                 </p>
-                <div className="flex items-end gap-3">
+                <div className="flex flex-wrap items-end gap-3">
                     {zIndexScale.map((item, i) => (
                         <div key={item.name} className="flex flex-col items-center gap-2">
                             <div
@@ -312,7 +312,7 @@ export default function SpacingPage() {
                         <p className="text-muted-foreground mb-3 text-xs font-medium tracking-widest uppercase">
                             Stack spacing
                         </p>
-                        <div className="flex gap-8">
+                        <div className="flex flex-wrap gap-8">
                             <div className="space-y-2">
                                 <div className="bg-primary/40 h-3 w-24 rounded" />
                                 <div className="bg-primary/40 h-3 w-20 rounded" />

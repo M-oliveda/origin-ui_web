@@ -422,7 +422,7 @@ export default function IconographyPage() {
                     <code className="text-xs">size-4</code> (16px) for inline use and{" "}
                     <code className="text-xs">size-5</code> (20px) for standalone use.
                 </p>
-                <div className="border-border flex items-end gap-6 rounded-lg border p-6">
+                <div className="border-border flex flex-wrap items-end gap-6 rounded-lg border p-6">
                     {iconSizes.map((s) => (
                         <div key={s.name} className="flex flex-col items-center gap-2">
                             <Hexagon className={`${s.class} text-foreground`} />
@@ -444,7 +444,7 @@ export default function IconographyPage() {
                     default is <code className="text-xs">1.5</code>. Adjust for visual weight in
                     different contexts.
                 </p>
-                <div className="border-border flex items-end gap-8 rounded-lg border p-6">
+                <div className="border-border flex flex-wrap items-end gap-8 rounded-lg border p-6">
                     {iconStrokeWidths.map((sw) => (
                         <div key={sw.name} className="flex flex-col items-center gap-2">
                             <Hexagon className="text-foreground size-8" strokeWidth={sw.value} />
