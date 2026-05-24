@@ -111,13 +111,13 @@ export default function TypographyPage() {
                     {typeScale.map((item) => (
                         <div
                             key={item.name}
-                            className="border-border flex items-baseline gap-4 border-b pb-3 last:border-0"
+                            className="border-border flex items-baseline gap-4 overflow-hidden border-b pb-3 last:border-0"
                         >
                             <div className="w-28 shrink-0">
                                 <CopyToken value={item.name} />
                                 <p className="text-muted-foreground/60 text-xs">{item.px}</p>
                             </div>
-                            <p className={item.class}>Space Grotesk</p>
+                            <p className={`${item.class} min-w-0`}>Space Grotesk</p>
                         </div>
                     ))}
                 </div>
@@ -157,7 +157,7 @@ export default function TypographyPage() {
                                 <CopyToken value={item.name} />
                                 <p className="text-muted-foreground/60 text-xs">{item.value}</p>
                             </div>
-                            <p className={`${item.class} text-xl`}>
+                            <p className={`${item.class} min-w-0 text-xl`}>
                                 The quick brown fox jumps over the lazy dog
                             </p>
                         </div>

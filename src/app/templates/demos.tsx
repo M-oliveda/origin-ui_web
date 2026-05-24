@@ -777,54 +777,53 @@ function PricingTemplate() {
                 {/* Plan cards */}
                 <div className="mt-12 grid gap-6 lg:grid-cols-3">
                     {plans.map((plan) => (
-                        <Card
-                            key={plan.name}
-                            className={plan.highlighted ? "border-primary relative shadow-lg" : ""}
-                        >
+                        <div key={plan.name} className={plan.highlighted ? "relative pt-3" : ""}>
                             {plan.highlighted && (
-                                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                                <div className="absolute top-3 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
                                     <Badge>Most Popular</Badge>
                                 </div>
                             )}
-                            <CardHeader className="text-center">
-                                <CardTitle className="text-xl">{plan.name}</CardTitle>
-                                <CardDescription>{plan.description}</CardDescription>
-                                <div className="mt-4">
-                                    <span className="text-4xl font-bold">{plan.price}</span>
-                                    <span className="text-muted-foreground">{plan.period}</span>
-                                </div>
-                            </CardHeader>
-                            <CardContent>
-                                <ul className="space-y-3">
-                                    {plan.features.map((feature) => (
-                                        <li
-                                            key={feature.text}
-                                            className="flex items-center gap-2 text-sm"
-                                        >
-                                            {feature.included ? (
-                                                <Check className="text-success size-4" />
-                                            ) : (
-                                                <X className="text-muted-foreground/40 size-4" />
-                                            )}
-                                            <span
-                                                className={
-                                                    feature.included
-                                                        ? ""
-                                                        : "text-muted-foreground/60"
-                                                }
+                            <Card className={plan.highlighted ? "border-primary shadow-lg" : ""}>
+                                <CardHeader className="text-center">
+                                    <CardTitle className="text-xl">{plan.name}</CardTitle>
+                                    <CardDescription>{plan.description}</CardDescription>
+                                    <div className="mt-4">
+                                        <span className="text-4xl font-bold">{plan.price}</span>
+                                        <span className="text-muted-foreground">{plan.period}</span>
+                                    </div>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul className="space-y-3">
+                                        {plan.features.map((feature) => (
+                                            <li
+                                                key={feature.text}
+                                                className="flex items-center gap-2 text-sm"
                                             >
-                                                {feature.text}
-                                            </span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </CardContent>
-                            <CardFooter>
-                                <Button variant={plan.variant} className="w-full">
-                                    {plan.cta}
-                                </Button>
-                            </CardFooter>
-                        </Card>
+                                                {feature.included ? (
+                                                    <Check className="text-success size-4" />
+                                                ) : (
+                                                    <X className="text-muted-foreground/40 size-4" />
+                                                )}
+                                                <span
+                                                    className={
+                                                        feature.included
+                                                            ? ""
+                                                            : "text-muted-foreground/60"
+                                                    }
+                                                >
+                                                    {feature.text}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                                <CardFooter>
+                                    <Button variant={plan.variant} className="w-full">
+                                        {plan.cta}
+                                    </Button>
+                                </CardFooter>
+                            </Card>
+                        </div>
                     ))}
                 </div>
 
