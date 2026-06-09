@@ -15,6 +15,18 @@ export const metadata: Metadata = {
     title: "Origin UI - Living Design System",
     description:
         "A living design system mirroring the Figma source of truth, built with Next.js, Tailwind CSS, and shadcn/ui.",
+    openGraph: {
+        title: "Origin UI - Living Design System",
+        description:
+            "A living design system mirroring the Figma source of truth, built with Next.js, Tailwind CSS, and shadcn/ui.",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Origin UI - Living Design System",
+        description:
+            "A living design system mirroring the Figma source of truth, built with Next.js, Tailwind CSS, and shadcn/ui.",
+    },
 };
 
 export default function RootLayout({

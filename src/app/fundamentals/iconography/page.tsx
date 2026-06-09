@@ -13,7 +13,6 @@ import {
 import { useState } from "react";
 import { toast } from "sonner";
 import {
-    Hexagon,
     Activity,
     AlertCircle,
     AlignCenter,
@@ -75,6 +74,7 @@ import {
 } from "lucide-react";
 
 import { CodeBlock } from "@/app/components/code-block";
+import { OriginUiLogo } from "@/components/branding/origin-ui-logo";
 
 import { CopyToken } from "../copy-token";
 
@@ -169,9 +169,6 @@ const iconLibrary: { name: string; icon: LucideIcon; category: string }[] = [
     { name: "Sparkles", icon: Sparkles, category: "Feature" },
     { name: "Megaphone", icon: Megaphone, category: "Feature" },
     { name: "LayoutDashboard", icon: LayoutDashboard, category: "Feature" },
-
-    // Brand
-    { name: "Hexagon", icon: Hexagon, category: "Brand" },
 ];
 
 const categories = [
@@ -183,7 +180,6 @@ const categories = [
     "Users",
     "Analytics",
     "Feature",
-    "Brand",
 ];
 
 export default function IconographyPage() {
@@ -220,10 +216,11 @@ export default function IconographyPage() {
                 <h3 className="text-lg font-semibold tracking-tight">Origin UI Icon</h3>
                 <Separator />
                 <p className="text-muted-foreground text-sm">
-                    The Origin UI brand mark is a Hexagon set on a{" "}
-                    <code className="text-xs">bg-primary</code> background with{" "}
-                    <code className="text-xs">text-primary-foreground</code> fill. It adapts
-                    automatically to light and dark themes.
+                    The Origin UI brand mark is a custom geometric icon paired with a wordmark,
+                    rendered as an inline SVG. It uses{" "}
+                    <code className="text-xs">stroke: #22333B</code> in light mode and{" "}
+                    <code className="text-xs">stroke: #EBE1D6</code> in dark mode, adapting
+                    automatically via the <code className="text-xs">.dark</code> class selector.
                 </p>
 
                 {/* Icon showcase */}
@@ -234,9 +231,7 @@ export default function IconographyPage() {
                             Light Theme
                         </p>
                         <div className="border-border flex items-center justify-center rounded-lg border bg-white p-10">
-                            <div className="bg-brand-800 inline-flex items-center justify-center rounded-xl p-4">
-                                <Hexagon className="size-12 text-white" />
-                            </div>
+                            <OriginUiLogo size="lg" />
                         </div>
                     </div>
                     {/* Dark appearance */}
@@ -244,10 +239,8 @@ export default function IconographyPage() {
                         <p className="text-muted-foreground text-xs font-medium tracking-widest uppercase">
                             Dark Theme
                         </p>
-                        <div className="border-border bg-brand-950 flex items-center justify-center rounded-lg border p-10">
-                            <div className="bg-brand-100 inline-flex items-center justify-center rounded-xl p-4">
-                                <Hexagon className="text-brand-950 size-12" />
-                            </div>
+                        <div className="dark border-border bg-brand-950 flex items-center justify-center rounded-lg border p-10">
+                            <OriginUiLogo size="lg" />
                         </div>
                     </div>
                 </div>
@@ -257,41 +250,16 @@ export default function IconographyPage() {
                     <p className="text-muted-foreground text-xs font-medium tracking-widest uppercase">
                         Size Variants
                     </p>
-                    <div className="border-border flex items-end gap-6 rounded-lg border p-6">
-                        {[
-                            {
-                                label: "sm",
-                                iconSize: "size-4",
-                                padSize: "p-1",
-                                radius: "rounded-md",
-                            },
-                            {
-                                label: "default",
-                                iconSize: "size-5",
-                                padSize: "p-1.5",
-                                radius: "rounded-md",
-                            },
-                            {
-                                label: "lg",
-                                iconSize: "size-7",
-                                padSize: "p-2",
-                                radius: "rounded-lg",
-                            },
-                            {
-                                label: "xl",
-                                iconSize: "size-10",
-                                padSize: "p-3",
-                                radius: "rounded-xl",
-                            },
-                        ].map((variant) => (
+                    <div className="border-border flex items-end gap-8 rounded-lg border p-6">
+                        {(
+                            [
+                                { label: "sm", size: "sm" },
+                                { label: "default", size: "default" },
+                                { label: "lg", size: "lg" },
+                            ] as { label: string; size: "sm" | "default" | "lg" }[]
+                        ).map((variant) => (
                             <div key={variant.label} className="flex flex-col items-center gap-2">
-                                <div
-                                    className={`bg-primary inline-flex items-center justify-center ${variant.padSize} ${variant.radius}`}
-                                >
-                                    <Hexagon
-                                        className={`${variant.iconSize} text-primary-foreground`}
-                                    />
-                                </div>
+                                <OriginUiLogo size={variant.size} />
                                 <code className="text-muted-foreground text-[10px]">
                                     {variant.label}
                                 </code>
@@ -306,26 +274,9 @@ export default function IconographyPage() {
                         Logo Lockup
                     </p>
                     <div className="border-border flex flex-col gap-4 rounded-lg border p-6">
-                        <div className="flex items-center gap-1.5">
-                            <div className="bg-primary inline-flex items-center justify-center rounded-md p-1">
-                                <Hexagon className="text-primary-foreground size-4" />
-                            </div>
-                            <span className="text-sm font-semibold tracking-tight">Origin UI</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <div className="bg-primary inline-flex items-center justify-center rounded-md p-1">
-                                <Hexagon className="text-primary-foreground size-5" />
-                            </div>
-                            <span className="text-base font-semibold tracking-tight">
-                                Origin UI
-                            </span>
-                        </div>
-                        <div className="flex items-center gap-2.5">
-                            <div className="bg-primary inline-flex items-center justify-center rounded-lg p-1.5">
-                                <Hexagon className="text-primary-foreground size-7" />
-                            </div>
-                            <span className="text-xl font-semibold tracking-tight">Origin UI</span>
-                        </div>
+                        <OriginUiLogo size="sm" />
+                        <OriginUiLogo />
+                        <OriginUiLogo size="lg" />
                     </div>
                 </div>
 
@@ -343,26 +294,26 @@ export default function IconographyPage() {
                         </TableHeader>
                         <TableBody>
                             {[
-                                { prop: "Shape", val: "Hexagon (lucide-react)" },
+                                { prop: "Shape", val: "Custom geometric mark — inline SVG" },
                                 {
-                                    prop: "Background",
-                                    val: "bg-primary (brand-800 light / brand-100 dark)",
+                                    prop: "Light stroke",
+                                    val: "#22333B (brand-950)",
                                 },
                                 {
-                                    prop: "Icon color",
-                                    val: "text-primary-foreground (brand-50 light / brand-950 dark)",
+                                    prop: "Dark stroke",
+                                    val: "#EBE1D6 (brand-100)",
                                 },
                                 {
-                                    prop: "Corner radius",
-                                    val: "rounded-md (sm/default) / rounded-lg (lg) / rounded-xl (xl)",
+                                    prop: "Theming",
+                                    val: ":is(.dark *) CSS class selector — no JS required",
                                 },
                                 {
-                                    prop: "Padding",
-                                    val: "p-1 (sm/default) / p-1.5 (lg) / p-2 (xl)",
+                                    prop: "Sizes",
+                                    val: "sm (h-4) / default (h-5) / lg (h-7)",
                                 },
                                 {
                                     prop: "Min clear space",
-                                    val: "Equal to icon padding on all sides",
+                                    val: "Equal to icon height on all sides",
                                 },
                                 {
                                     prop: "Component",
@@ -406,7 +357,7 @@ export default function IconographyPage() {
                     </p>
                     <pre className="overflow-x-auto text-sm">
                         <code className="text-foreground">
-                            {`import { Hexagon, Search, Check } from "lucide-react";`}
+                            {`import { Search, Check } from "lucide-react";`}
                         </code>
                     </pre>
                 </div>
@@ -425,7 +376,7 @@ export default function IconographyPage() {
                 <div className="border-border flex flex-wrap items-end gap-6 rounded-lg border p-6">
                     {iconSizes.map((s) => (
                         <div key={s.name} className="flex flex-col items-center gap-2">
-                            <Hexagon className={`${s.class} text-foreground`} />
+                            <Search className={`${s.class} text-foreground`} />
                             <div className="text-center">
                                 <CopyToken value={s.name} className="text-[10px]" />
                                 <p className="text-muted-foreground/60 text-[10px]">{s.px}</p>
@@ -447,7 +398,7 @@ export default function IconographyPage() {
                 <div className="border-border flex flex-wrap items-end gap-8 rounded-lg border p-6">
                     {iconStrokeWidths.map((sw) => (
                         <div key={sw.name} className="flex flex-col items-center gap-2">
-                            <Hexagon className="text-foreground size-8" strokeWidth={sw.value} />
+                            <Search className="text-foreground size-8" strokeWidth={sw.value} />
                             <div className="text-center">
                                 <p className="text-xs font-medium">{sw.desc}</p>
                                 <CopyToken value={sw.name} className="text-[10px]" />
@@ -686,15 +637,15 @@ export default function IconographyPage() {
 <AlertCircle className="size-4 text-error" />
 
 // Icon sizing
-<Hexagon className="size-3" />   {/* 12px — minimum */}
-<Hexagon className="size-4" />   {/* 16px — inline default */}
-<Hexagon className="size-5" />   {/* 20px — standalone default */}
-<Hexagon className="size-6" />   {/* 24px — large */}
+<Search className="size-3" />   {/* 12px — minimum */}
+<Search className="size-4" />   {/* 16px — inline default */}
+<Search className="size-5" />   {/* 20px — standalone default */}
+<Search className="size-6" />   {/* 24px — large */}
 
 // Stroke width adjustment
-<Hexagon strokeWidth={1} />      {/* Thin */}
-<Hexagon strokeWidth={1.5} />    {/* Default */}
-<Hexagon strokeWidth={2} />      {/* Medium */}
+<Search strokeWidth={1} />      {/* Thin */}
+<Search strokeWidth={1.5} />    {/* Default */}
+<Search strokeWidth={2} />      {/* Medium */}
 
 // Typing icon props
 interface NavItemProps {
